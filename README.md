@@ -1,7 +1,6 @@
 # PicShrinkr – Serverless File Processing Pipeline on AWS
 
-PicShrinkr is an event-driven, serverless application built on Amazon Web Services (AWS).  
-When a file is uploaded to a specific Amazon S3 bucket, an AWS Lambda function automatically processes the file by copying it to another S3 bucket and saving metadata to a DynamoDB table. All activity is logged in CloudWatch.
+PicShrinkr is a serverless backend application built using AWS. It demonstrates how cloud services can automatically react to events without requiring traditional servers or a user interface. When a file is uploaded to a specific Amazon S3 bucket, an AWS Lambda function automatically processes the file by copying it to another S3 bucket and saving metadata to a DynamoDB table. All activity is logged in CloudWatch.
 
 This project was created as a final portfolio project for an AWS computing course and demonstrates real-world use of AWS serverless services.
 
@@ -11,14 +10,14 @@ This project was created as a final portfolio project for an AWS computing cours
 
 ### Problem
 
-Many cloud workloads operate entirely in the background without a web interface. They react to events—such as file uploads—by processing data automatically. This project demonstrates how to build such a backend automation pipeline using AWS.
+Many cloud workloads operate entirely in the background without a web interface. They react to events such as file uploads by processing data automatically. This project demonstrates how to build such a backend automation pipeline using AWS.
 
 ### Solution
 
-PicShrinkr implements an event-driven backend system using AWS managed services.  
+PicShrinkr is a serverless backend application built using AWS. 
 Whenever a file is uploaded to the “raw” S3 bucket:
 
-1. S3 emits an object-created event.
+1. S3 emits an object created event.
 2. AWS Lambda is triggered.
 3. The file is copied to a “processed” S3 bucket.
 4. Metadata about the file and processing time is recorded in DynamoDB.
@@ -134,7 +133,7 @@ Screenshots of these steps (S3, Lambda, DynamoDB, CloudWatch) are included in th
 
 ## Security
 
-- Lambda uses a dedicated IAM role with **least-privilege permissions**:
+- Lambda uses a dedicated IAM role with **least privilege permissions**:
   - `s3:GetObject` only on the raw bucket
   - `s3:PutObject` only on the processed bucket
   - `dynamodb:PutItem` only on the metadata table
@@ -150,7 +149,7 @@ Screenshots of these steps (S3, Lambda, DynamoDB, CloudWatch) are included in th
   - S3 and DynamoDB are fully managed and scale automatically based on demand.
 
 - **High Availability:**  
-  - Lambda, S3, and DynamoDB are multi-AZ services, providing built-in fault tolerance without extra configuration.
+  - Lambda, S3, and DynamoDB are multi AZ services, providing built in fault tolerance without extra configuration.
 
 ---
 
@@ -181,4 +180,4 @@ Cleanup steps are described in more detail in the project report.
 - Amazon S3 Documentation  
 - Amazon DynamoDB Documentation  
 - AWS CloudWatch Logs Documentation  
-- AWS Well-Architected Framework  
+- AWS Well Architected Framework  
